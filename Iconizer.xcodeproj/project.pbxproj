@@ -19,7 +19,7 @@
 		61547B1BAB5AA958132ADCE7 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61547491B396897B2A4F1E2D /* Asset.swift */; };
 		61547B9CD09513803896420B /* AssetScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61547BD61AE7FFB120E33CFC /* AssetScale.swift */; };
 		61547F22829F35935EAA38C1 /* LaunchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6154771EF6D8D4122C664E15 /* LaunchImage.swift */; };
-		844FDF5C246645BB00459DB7 /* SBBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844FDF5B246645BB00459DB7 /* SBBox.swift */; };
+		844FDF5E24664C2C00459DB7 /* SBBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844FDF5D24664C2B00459DB7 /* SBBox.swift */; };
 		8E2F99421C01F13600C2E2D8 /* AppIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F993E1C01F13600C2E2D8 /* AppIconViewController.swift */; };
 		8E2F99431C01F13600C2E2D8 /* ImageSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F993F1C01F13600C2E2D8 /* ImageSetViewController.swift */; };
 		8E2F99441C01F13600C2E2D8 /* LaunchImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F99401C01F13600C2E2D8 /* LaunchImageViewController.swift */; };
@@ -66,7 +66,7 @@
 		61547EBDFC6B8AAD2ABA45D0 /* ImageSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSet.swift; path = Models/ImageSet.swift; sourceTree = "<group>"; };
 		61547EC2357DBABDED490912 /* AppIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppIcon.swift; path = Models/AppIcon.swift; sourceTree = "<group>"; };
 		61547F235EFD2AB677299655 /* AssetSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetSize.swift; sourceTree = "<group>"; };
-		844FDF5B246645BB00459DB7 /* SBBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBox.swift; sourceTree = "<group>"; };
+		844FDF5D24664C2B00459DB7 /* SBBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SBBox.swift; path = Iconizer/Helper/SBBox.swift; sourceTree = "<group>"; };
 		8E2F993E1C01F13600C2E2D8 /* AppIconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppIconViewController.swift; path = Controller/AppIconViewController.swift; sourceTree = "<group>"; };
 		8E2F993F1C01F13600C2E2D8 /* ImageSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSetViewController.swift; path = Controller/ImageSetViewController.swift; sourceTree = "<group>"; };
 		8E2F99401C01F13600C2E2D8 /* LaunchImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchImageViewController.swift; path = Controller/LaunchImageViewController.swift; sourceTree = "<group>"; };
@@ -232,8 +232,8 @@
 				8E2F995B1C01F17E00C2E2D8 /* Constants.swift */,
 				8E2F995C1C01F17E00C2E2D8 /* ErrorTypes.swift */,
 				8E5C00D31E0AA3260094FD0C /* DragDropImageView.swift */,
-				844FDF5B246645BB00459DB7 /* SBBox.swift */,
 				8E2F995D1C01F17E00C2E2D8 /* NSImageExtensions.swift */,
+				844FDF5D24664C2B00459DB7 /* SBBox.swift */,
 				8E2F995F1C01F17E00C2E2D8 /* StringExtensions.swift */,
 				C58CD0AA2220ACD700D286C0 /* ViewControllerTag.swift */,
 				615478E5B6D62E43DD5EEF11 /* Asset */,
@@ -369,7 +369,7 @@
 				8E2F99451C01F13600C2E2D8 /* MainWindowController.swift in Sources */,
 				8E2F99441C01F13600C2E2D8 /* LaunchImageViewController.swift in Sources */,
 				8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */,
-				844FDF5C246645BB00459DB7 /* SBBox.swift in Sources */,
+				844FDF5E24664C2C00459DB7 /* SBBox.swift in Sources */,
 				8E2F99621C01F17E00C2E2D8 /* NSImageExtensions.swift in Sources */,
 				8E2F994F1C01F14E00C2E2D8 /* PreferenceManager.swift in Sources */,
 				8E2F994C1C01F14E00C2E2D8 /* AssetCatalog.swift in Sources */,
