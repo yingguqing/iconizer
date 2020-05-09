@@ -58,37 +58,44 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         guard let currentView = self.currentView else {
             return
         }
-        // Create an new NSSavePanel...
-        let exportSheet = NSSavePanel()
-        // ...and present it to the user.
-        exportSheet.beginSheetModal(for: window!) { (result: NSApplication.ModalResponse) in
-            // The user clicked "Export".
-            if result == NSApplication.ModalResponse.OK {
-                do {
+        if let saveOptions = currentView.saveOptions {
+            save(name: saveOptions.name, toURL: saveOptions.url, currentView: currentView)
+        } else {
+            // Create an new NSSavePanel...
+            let exportSheet = NSSavePanel()
+            // ...and present it to the user.
+            exportSheet.beginSheetModal(for: window!) { (result: NSApplication.ModalResponse) in
+                // The user clicked "Export".
+                if result == NSApplication.ModalResponse.OK {
                     // Unwrap the file url and get rid of the last path component.
                     guard let url = exportSheet.url?.deletingLastPathComponent() else {
                         return
                     }
-                    // Save the generated asset catalog to the selected file URL.
-                    try currentView.saveAssetCatalog(named: exportSheet.nameFieldStringValue, toURL: url)
+                    self.save(name: exportSheet.nameFieldStringValue, toURL: url, currentView: currentView)
                     // Open the generated asset catalog in Finder.
-                    NSWorkspace
-                        .shared
-                        .open(url.appendingPathComponent("Iconizer Assets", isDirectory: true))
-                } catch IconizerViewControllerError.missingImage {
-                    self.displayAlertModal(withMessage: "Missing Image",
-                                           andText: "You have to provide an image to export.")
-                } catch IconizerViewControllerError.missingPlatform {
-                    self.displayAlertModal(withMessage: "Missing Platform",
-                                           andText: "You have to at least select one platform.")
-                } catch {
-                    self.displayAlertModal(withMessage: "Oh Snap!",
-                                           andText: "This should not have happened.")
+                    NSWorkspace.shared.open(url.appendingPathComponent("Iconizer Assets", isDirectory: true))
                 }
             }
         }
     }
 
+    func save(name:String, toURL:URL, currentView: IconizerViewControllerProtocol) {
+        do {
+            // Save the generated asset catalog to the selected file URL.
+            try currentView.saveAssetCatalog(named: name, toURL: toURL)
+            // Open the generated asset catalog in Finder.
+        } catch IconizerViewControllerError.missingImage {
+            self.displayAlertModal(withMessage: "Missing Image",
+                                   andText: "You have to provide an image to export.")
+        } catch IconizerViewControllerError.missingPlatform {
+            self.displayAlertModal(withMessage: "Missing Platform",
+                                   andText: "You have to at least select one platform.")
+        } catch {
+            self.displayAlertModal(withMessage: "Oh Snap!",
+                                   andText: "This should not have happened.")
+        }
+    }
+    
     /// Save the image(s) as asset catalog.
     ///
     /// - Parameter sender: NSButton that sent the action.
@@ -117,11 +124,8 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
                 }
                 // Open the selected image file.
                 try currentView.openSelectedImage(NSImage(contentsOf: url))
-            } catch {
-                if let error = error as? String {
-                    NSLog(error)
-                }
-                return
+            } catch let error {
+                debugPrint(error.localizedDescription)
             }
         }
     }

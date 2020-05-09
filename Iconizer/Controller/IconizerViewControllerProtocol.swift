@@ -25,4 +25,13 @@ protocol IconizerViewControllerProtocol {
     /// - Parameter image: The selected image.
     /// - Throws: An error, in case the selected image couldn't be opened.
     func openSelectedImage(_ image: NSImage?) throws
+    
+    var saveOptions:(name:String, url:URL)? { get }
+}
+
+
+extension IconizerViewControllerProtocol {
+    var saveOptions:(name:String, url:URL)? {
+        return nil
+    }
 }

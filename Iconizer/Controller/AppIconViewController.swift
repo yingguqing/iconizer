@@ -23,10 +23,14 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
     @IBOutlet weak var iMessage: NSButton!
     /// Holds the ImageView for the image to generate the App Icon from.
     @IBOutlet weak var imageView: NSImageView!
-
+    
+    @IBOutlet weak var ivXcassets: NSImageView!
+    @IBOutlet weak var box: SBBox!
     /// Manage the user's preferences.
     let prefManager = PreferenceManager()
 
+    var xcassetsPath = ""
+    
     /// Check which platforms are selected.
     var appPlatforms: [Platform] {
         // String array of selected platforms.
@@ -55,11 +59,34 @@ class AppIconViewController: NSViewController, IconizerViewControllerProtocol {
         return platform
     }
 
+    var saveOptions: (name: String, url: URL)? {
+        guard xcassetsPath.fileIsExists else {
+            return nil
+        }
+        return (name: "AppIcon", url: URL(fileURLWithPath: xcassetsPath))
+    }
+    
     /// The name of the corresponding nib file.
     override var nibName: NSNib.Name {
         return "AppIconView"
     }
 
+    override func loadView() {
+        super.loadView()
+        box.title = "xcassets"
+        box.fileExtension = ["xcassets"]
+        box.maxFileNum = 1
+        box.finishDo = { filePaths in
+            DispatchQueue.main.async { [weak self] in
+                if let self = self, let path = filePaths.first {
+                    self.xcassetsPath = path
+                    let name = path.fileIsExists ? "xcodeproj" : "xcodeproj_inactive"
+                    self.ivXcassets.image = NSImage(named: name)
+                }
+            }
+        }
+    }
+    
     // MARK: View Controller
 
     override func viewDidLoad() {

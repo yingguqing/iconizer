@@ -19,6 +19,7 @@
 		61547B1BAB5AA958132ADCE7 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61547491B396897B2A4F1E2D /* Asset.swift */; };
 		61547B9CD09513803896420B /* AssetScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61547BD61AE7FFB120E33CFC /* AssetScale.swift */; };
 		61547F22829F35935EAA38C1 /* LaunchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6154771EF6D8D4122C664E15 /* LaunchImage.swift */; };
+		844FDF5C246645BB00459DB7 /* SBBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844FDF5B246645BB00459DB7 /* SBBox.swift */; };
 		8E2F99421C01F13600C2E2D8 /* AppIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F993E1C01F13600C2E2D8 /* AppIconViewController.swift */; };
 		8E2F99431C01F13600C2E2D8 /* ImageSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F993F1C01F13600C2E2D8 /* ImageSetViewController.swift */; };
 		8E2F99441C01F13600C2E2D8 /* LaunchImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F99401C01F13600C2E2D8 /* LaunchImageViewController.swift */; };
@@ -41,8 +42,6 @@
 		8E2F99731C01F19400C2E2D8 /* AppIcon_Watch.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F99691C01F19400C2E2D8 /* AppIcon_Watch.json */; };
 		8E2F99741C01F19400C2E2D8 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F996A1C01F19400C2E2D8 /* dsa_pub.pem */; };
 		8E2F99761C01F19400C2E2D8 /* ImageSet.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E2F996C1C01F19400C2E2D8 /* ImageSet.json */; };
-		8E2F997F1C01F67C00C2E2D8 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E2F997D1C01F65E00C2E2D8 /* Sparkle.framework */; };
-		8E2F99801C01F67C00C2E2D8 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E2F997D1C01F65E00C2E2D8 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F8F6A1B23488F0096E9EC /* AppDelegate.swift */; };
 		8E5C00D41E0AA3260094FD0C /* DragDropImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C00D31E0AA3260094FD0C /* DragDropImageView.swift */; };
 		C52DA9731FE5BD5C0011E3C5 /* AppIcon_iOS.json in Resources */ = {isa = PBXBuildFile; fileRef = C52DA9721FE5BD5C0011E3C5 /* AppIcon_iOS.json */; };
@@ -53,19 +52,6 @@
 		C57ED8C4205EBAF70048B3D1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C57ED8C3205EBAF70048B3D1 /* Images.xcassets */; };
 		C58CD0AB2220ACD700D286C0 /* ViewControllerTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD0AA2220ACD700D286C0 /* ViewControllerTag.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		8E7163831B5455CB00A031AB /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8E2F99801C01F67C00C2E2D8 /* Sparkle.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		615470E5E6246DA215022584 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
@@ -80,6 +66,7 @@
 		61547EBDFC6B8AAD2ABA45D0 /* ImageSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSet.swift; path = Models/ImageSet.swift; sourceTree = "<group>"; };
 		61547EC2357DBABDED490912 /* AppIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppIcon.swift; path = Models/AppIcon.swift; sourceTree = "<group>"; };
 		61547F235EFD2AB677299655 /* AssetSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetSize.swift; sourceTree = "<group>"; };
+		844FDF5B246645BB00459DB7 /* SBBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBox.swift; sourceTree = "<group>"; };
 		8E2F993E1C01F13600C2E2D8 /* AppIconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppIconViewController.swift; path = Controller/AppIconViewController.swift; sourceTree = "<group>"; };
 		8E2F993F1C01F13600C2E2D8 /* ImageSetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSetViewController.swift; path = Controller/ImageSetViewController.swift; sourceTree = "<group>"; };
 		8E2F99401C01F13600C2E2D8 /* LaunchImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LaunchImageViewController.swift; path = Controller/LaunchImageViewController.swift; sourceTree = "<group>"; };
@@ -121,7 +108,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E2F997F1C01F67C00C2E2D8 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +232,7 @@
 				8E2F995B1C01F17E00C2E2D8 /* Constants.swift */,
 				8E2F995C1C01F17E00C2E2D8 /* ErrorTypes.swift */,
 				8E5C00D31E0AA3260094FD0C /* DragDropImageView.swift */,
+				844FDF5B246645BB00459DB7 /* SBBox.swift */,
 				8E2F995D1C01F17E00C2E2D8 /* NSImageExtensions.swift */,
 				8E2F995F1C01F17E00C2E2D8 /* StringExtensions.swift */,
 				C58CD0AA2220ACD700D286C0 /* ViewControllerTag.swift */,
@@ -274,7 +261,6 @@
 				8E3F8F611B23488F0096E9EC /* Sources */,
 				8E3F8F621B23488F0096E9EC /* Frameworks */,
 				8E3F8F631B23488F0096E9EC /* Resources */,
-				8E7163831B5455CB00A031AB /* CopyFiles */,
 				8E217D3C1CA2F77D000D344E /* ShellScript */,
 			);
 			buildRules = (
@@ -383,6 +369,7 @@
 				8E2F99451C01F13600C2E2D8 /* MainWindowController.swift in Sources */,
 				8E2F99441C01F13600C2E2D8 /* LaunchImageViewController.swift in Sources */,
 				8E3F8F6B1B23488F0096E9EC /* AppDelegate.swift in Sources */,
+				844FDF5C246645BB00459DB7 /* SBBox.swift in Sources */,
 				8E2F99621C01F17E00C2E2D8 /* NSImageExtensions.swift in Sources */,
 				8E2F994F1C01F14E00C2E2D8 /* PreferenceManager.swift in Sources */,
 				8E2F994C1C01F14E00C2E2D8 /* AssetCatalog.swift in Sources */,
