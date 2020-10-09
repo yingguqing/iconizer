@@ -19,6 +19,8 @@ protocol IconizerViewControllerProtocol {
     /// - Throws: An IconizerViewControllerError
     func saveAssetCatalog(named name: String, toURL url: URL) throws
 
+    var saveURL:URL? { get }
+    
     /// Open an image and insert it into the currently
     /// active image well.
     ///
@@ -32,6 +34,10 @@ protocol IconizerViewControllerProtocol {
 
 extension IconizerViewControllerProtocol {
     var saveOptions:(name:String, url:URL)? {
+        return nil
+    }
+    
+    var saveURL:URL? {
         return nil
     }
 }

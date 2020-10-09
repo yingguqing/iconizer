@@ -10,7 +10,7 @@ class AppIcon: Codable {
     private static let marketing = "marketing"
 
     class var directory: String {
-        return Constants.Directory.appIcon
+        return ""//Constants.Directory.appIcon
     }
 
     class var `extension`: String {
