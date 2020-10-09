@@ -10,7 +10,7 @@ class AppIcon: Codable {
     private static let marketing = "marketing"
 
     class var directory: String {
-        return ""//Constants.Directory.appIcon
+        return Constants.Directory.appIcon
     }
 
     class var `extension`: String {
@@ -92,7 +92,7 @@ extension AppIcon: Asset {
     static let resourcePrefix = "AppIcon_"
 
     static func directory(named: String) -> String {
-        return "\(directory)/\(named).\(self.extension)"
+        return "\(named).\(self.extension)"
     }
 
     func save(_ image: [ImageOrientation: NSImage], aspect: AspectMode?, to url: URL) throws {
@@ -104,8 +104,8 @@ extension AppIcon: Asset {
         let url = url.appendingPathComponent(filename, isDirectory: false)
         //skip if already exist
         //filename based on size, so we will reuse same images in Contents.json
-        guard !FileManager.default.fileExists(atPath: url.path) else {
-            return
+        if FileManager.default.fileExists(atPath: url.path) {
+            try FileManager.default.removeItem(at: url)
         }
         //resize icon
 
