@@ -8,9 +8,8 @@ import Cocoa
 
 /// Controller for the Main Window.
 class MainWindowController: NSWindowController, NSWindowDelegate {
-
     /// Points to the SegmentedControl, which determines which view is currently selected.
-    @IBOutlet weak var exportType: NSSegmentedControl!
+    @IBOutlet var exportType: NSSegmentedControl!
 
     /// Represents the currently selected view.
     var currentView: IconizerViewControllerProtocol?
@@ -33,12 +32,12 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
             window.titleVisibility = .hidden
         }
         self.changeView(ViewControllerTag(rawValue: self.preferences.selectedExportType))
-        exportType.selectedSegment = self.preferences.selectedExportType
+        self.exportType.selectedSegment = self.preferences.selectedExportType
     }
 
     // Save the user preferences before the application terminates.
     func windowWillClose(_: Notification) {
-        self.preferences.selectedExportType = exportType.selectedSegment
+        self.preferences.selectedExportType = self.exportType.selectedSegment
     }
 
     // MARK: Actions
@@ -47,7 +46,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     ///
     /// - Parameter sender: The NSSegmentControle that sent the message.
     @IBAction func selectView(_ sender: NSSegmentedControl) {
-        changeView(ViewControllerTag(rawValue: sender.selectedSegment))
+        self.changeView(ViewControllerTag(rawValue: sender.selectedSegment))
     }
 
     /// Save the image(s) as asset catalog.
@@ -59,7 +58,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
             return
         }
         if let saveOptions = currentView.saveOptions {
-            save(name: saveOptions.name, toURL: saveOptions.url, currentView: currentView)
+            self.save(name: saveOptions.name, toURL: saveOptions.url, currentView: currentView)
         } else {
             // Create an new NSSavePanel...
             let exportSheet = NSSavePanel()
@@ -79,7 +78,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         }
     }
 
-    func save(name:String, toURL:URL, currentView: IconizerViewControllerProtocol) {
+    func save(name: String, toURL: URL, currentView: IconizerViewControllerProtocol) {
         do {
             // Save the generated asset catalog to the selected file URL.
             try currentView.saveAssetCatalog(named: name, toURL: toURL)
@@ -95,12 +94,12 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
                                    andText: "This should not have happened.")
         }
     }
-    
+
     /// Save the image(s) as asset catalog.
     ///
     /// - Parameter sender: NSButton that sent the action.
     @IBAction func saveDocumentAs(_ sender: NSButton) {
-        saveDocument(sender)
+        self.saveDocument(sender)
     }
 
     /// Present an open dialog to the user.
@@ -124,7 +123,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
                 }
                 // Open the selected image file.
                 try currentView.openSelectedImage(NSImage(contentsOf: url))
-            } catch let error {
+            } catch {
                 debugPrint(error.localizedDescription)
             }
         }
@@ -137,20 +136,20 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     /// - Parameter newView: The ViewControllerTag of the view to display.
     func changeView(_ newView: ViewControllerTag?) {
         guard let window = self.window,
-            let newView  = newView else {
-                return
+            let newView = newView else {
+            return
         }
 
         switch newView {
-        case .appIconViewControllerTag:
-            self.currentView = AppIconViewController()
-        case .imageSetViewControllerTag:
-            self.currentView = ImageSetViewController()
-        case .launchImageViewControllerTag:
-            self.currentView = LaunchImageViewController()
+            case .appIconViewControllerTag:
+                self.currentView = AppIconViewController()
+            case .launchImageViewControllerTag:
+                self.currentView = LaunchImageViewController()
+            case .imageSetViewControllerTag:
+                self.currentView = ImageSetViewController()
         }
 
-        resizeWindowForContentSize(self.currentView?.view.frame.size)
+        self.resizeWindowForContentSize(self.currentView?.view.frame.size)
         window.contentView = self.currentView?.view
     }
 
